@@ -15,7 +15,7 @@ This project is dependent on [Scoober-FE-Challenge-Starter](https://github.com/t
 5. Styled components are used to design html elements
 
 ## Test coverage
-![Report](/assets/coverage.png?raw=true "Coverage report")
+<img width="786" alt="coverage" src="https://user-images.githubusercontent.com/17976072/132997903-17cd54e8-da61-4d7d-a720-35d0dbe1d85e.png">
 
 ## Available Scripts
 
