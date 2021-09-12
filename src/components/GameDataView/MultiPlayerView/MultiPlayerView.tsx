@@ -11,11 +11,13 @@ import player1 from "../../../assets/player1.png";
 import player2 from "../../../assets/player2.png";
 
 interface MultiPlayerViewProps {
+  id: string;
   attempts: Array<Attemps>;
   player2Id: string;
 }
 
 const MultiPlayerView: React.FC<MultiPlayerViewProps> = ({
+  id,
   attempts,
   player2Id,
 }) => {
@@ -28,13 +30,14 @@ const MultiPlayerView: React.FC<MultiPlayerViewProps> = ({
               <GameDataContent
                 key={`${attempt.user.id}-${index}`}
                 style={{ transform: "scaleX(-1)" }}
+                data-testid={`${id}-player2-content`}
               >
                 <Avatar uri={player2} />
                 <ContentSection>
                   <Button
                     isButtonDisabled
                     id="player-data-button"
-                    onButtonClick={() => undefined}
+                    onButtonClick={/* istanbul ignore next */ () => undefined}
                     text={attempt.number.toString()}
                     buttonStyles={{
                       width: "60px",
@@ -43,10 +46,16 @@ const MultiPlayerView: React.FC<MultiPlayerViewProps> = ({
                       background: "#439ad4",
                     }}
                   />
-                  <TextContent style={{ transform: "scaleX(-1)" }}>
+                  <TextContent
+                    data-testid={`${id}-attempt-player2-text`}
+                    style={{ transform: "scaleX(-1)" }}
+                  >
                     {attempt.text}
                   </TextContent>
-                  <TextContent style={{ transform: "scaleX(-1)" }}>
+                  <TextContent
+                    data-testid={`${id}-attempt-player2-value`}
+                    style={{ transform: "scaleX(-1)" }}
+                  >
                     {attempt.newValue}
                   </TextContent>
                 </ContentSection>
@@ -54,13 +63,16 @@ const MultiPlayerView: React.FC<MultiPlayerViewProps> = ({
             );
           }
           return (
-            <GameDataContent key={`${attempt.user.id}-${index}`}>
+            <GameDataContent
+              key={`${attempt.user.id}-${index}`}
+              data-testid={`${id}-player1-content`}
+            >
               <Avatar uri={player1} />
               <ContentSection>
                 <Button
                   isButtonDisabled
                   id="player-data-button"
-                  onButtonClick={() => undefined}
+                  onButtonClick={/* istanbul ignore next */ () => undefined}
                   text={attempt.number.toString()}
                   buttonStyles={{
                     width: "60px",
@@ -68,8 +80,12 @@ const MultiPlayerView: React.FC<MultiPlayerViewProps> = ({
                     background: "#439ad4",
                   }}
                 />
-                <TextContent>{attempt.text}</TextContent>
-                <TextContent>{attempt.newValue}</TextContent>
+                <TextContent data-testid={`${id}-attempt-player1-text`}>
+                  {attempt.text}
+                </TextContent>
+                <TextContent data-testid={`${id}-attempt-player1-value`}>
+                  {attempt.newValue}
+                </TextContent>
               </ContentSection>
             </GameDataContent>
           );

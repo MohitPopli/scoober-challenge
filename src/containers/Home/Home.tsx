@@ -127,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ socket }) => {
             <Button
               id="leave-game-button"
               onButtonClick={leaveGameHandler}
-              isButtonDisabled={gameData.winner !== null}
+              isButtonDisabled={gameData.winner !== null && gameData.winner.length !== 0}
               text="Leave Game"
               buttonStyles={StartgameButtonStyles}
             />

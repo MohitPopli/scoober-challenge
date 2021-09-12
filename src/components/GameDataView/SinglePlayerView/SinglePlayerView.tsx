@@ -11,11 +11,13 @@ import player1 from "../../../assets/player1.png";
 import logo from "../../../assets/logo.png";
 
 interface SinglePlayeViewProps {
+  id: string;
   attempts: Array<Attemps>;
   botId: string;
 }
 
 const SinglePlayerView: React.FC<SinglePlayeViewProps> = ({
+  id,
   attempts,
   botId,
 }) => {
@@ -28,13 +30,14 @@ const SinglePlayerView: React.FC<SinglePlayeViewProps> = ({
               <GameDataContent
                 key={`${attempt.user.id}-${index}`}
                 style={{ transform: "scaleX(-1)" }}
+                data-testid={`${id}-bot-content`}
               >
                 <Avatar uri={logo} />
                 <ContentSection>
                   <Button
                     isButtonDisabled
                     id="player-data-button"
-                    onButtonClick={() => undefined}
+                    onButtonClick={/* istanbul ignore next */ () => undefined}
                     text={attempt.number.toString()}
                     buttonStyles={{
                       width: "60px",
@@ -43,10 +46,16 @@ const SinglePlayerView: React.FC<SinglePlayeViewProps> = ({
                       background: "#439ad4",
                     }}
                   />
-                  <TextContent style={{ transform: "scaleX(-1)" }}>
+                  <TextContent
+                    data-testid={`${id}-attempt-bot-text`}
+                    style={{ transform: "scaleX(-1)" }}
+                  >
                     {attempt.text}
                   </TextContent>
-                  <TextContent style={{ transform: "scaleX(-1)" }}>
+                  <TextContent
+                    data-testid={`${id}-attempt-bot-value`}
+                    style={{ transform: "scaleX(-1)" }}
+                  >
                     {attempt.newValue}
                   </TextContent>
                 </ContentSection>
@@ -54,13 +63,16 @@ const SinglePlayerView: React.FC<SinglePlayeViewProps> = ({
             );
           }
           return (
-            <GameDataContent key={`${attempt.user.id}-${index}`}>
+            <GameDataContent
+              key={`${attempt.user.id}-${index}`}
+              data-testid={`${id}-player-content`}
+            >
               <Avatar uri={player1} />
               <ContentSection>
                 <Button
                   isButtonDisabled
                   id="player-data-button"
-                  onButtonClick={() => undefined}
+                  onButtonClick={/* istanbul ignore next */ () => undefined}
                   text={attempt.number.toString()}
                   buttonStyles={{
                     width: "60px",
@@ -68,8 +80,12 @@ const SinglePlayerView: React.FC<SinglePlayeViewProps> = ({
                     background: "#439ad4",
                   }}
                 />
-                <TextContent>{attempt.text}</TextContent>
-                <TextContent>{attempt.newValue}</TextContent>
+                <TextContent data-testid={`${id}-attempt-player1-text`}>
+                  {attempt.text}
+                </TextContent>
+                <TextContent data-testid={`${id}-attempt-player1-value`}>
+                  {attempt.newValue}
+                </TextContent>
               </ContentSection>
             </GameDataContent>
           );

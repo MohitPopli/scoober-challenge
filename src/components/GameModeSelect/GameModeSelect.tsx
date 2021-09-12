@@ -21,15 +21,15 @@ const GameModeSelect: React.FC<GameModeSelectProps> = ({
       <SelectionListLegend>Choose Mode</SelectionListLegend>
       <ModesSelectionList
         name="game-mode"
-        id={id}
+        data-testid={id}
         autoFocus
         autoComplete="off"
         onChange={(event) => onModeSelect(event.target.value)}
       >
-        <SelectListOption id={`${id}-option-1`} value={GameModes.SINGLE_PLAYER}>
+        <SelectListOption data-testid={`${id}-option-1`} value={GameModes.SINGLE_PLAYER}>
           PLAYER VS BOT
         </SelectListOption>
-        <SelectListOption id={`${id}-option-2`} value={GameModes.MULTI_PLAYER}>
+        <SelectListOption data-testid={`${id}-option-2`} value={GameModes.MULTI_PLAYER}>
           PLAYER VS PLAYER
         </SelectListOption>
       </ModesSelectionList>

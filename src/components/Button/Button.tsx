@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledButton } from "./Button.styled";
 
-interface ButtonProps {
+export interface ButtonProps {
   id: string;
   isButtonDisabled: boolean;
   text: string;

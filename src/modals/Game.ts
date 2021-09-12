@@ -7,7 +7,7 @@ export interface Game {
   winner: string;
   attemps: Array<Attemps>;
   playerOne: User;
-  playerTwo: User;
+  playerTwo: User | null;
   turn: string;
 }
 

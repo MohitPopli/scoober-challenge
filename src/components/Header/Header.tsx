@@ -7,7 +7,7 @@ import {
   TextContainer,
 } from "./Header.styled";
 
-interface HeaderProps {
+export interface HeaderProps {
   id: string;
   avatarSrc?: string;
   headerTitle: string;
