@@ -14,6 +14,9 @@ This project is dependent on [Scoober-FE-Challenge-Starter](https://github.com/t
 4. Testing library and Jest is used to test components in isolation
 5. Styled components are used to design html elements
 
+## Test coverage
+![Report](/assets/coverage.png?raw=true "Coverage report")
+
 ## Available Scripts
 
 In the project directory, you can run:
