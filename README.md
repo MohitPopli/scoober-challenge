@@ -1,10 +1,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
-## Demo
-[Click here]()
-
 ## Instructions
 This project is dependent on [Scoober-FE-Challenge-Starter](https://github.com/takeaway/scoober-fe-challenge-starter) as the backend server implementation.
 
